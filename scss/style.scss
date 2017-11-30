@@ -1,0 +1,104 @@
+@import "compass/css3";
+
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:300,400,700);
+@import url('http://weloveiconfonts.com/api/?family=fontawesome');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  font: 16px/1 'Open Sans', sans-serif;
+  background: url('http://abload.de/img/bluruyu2s.jpg') #b66e5d;
+  background-size: 100% 100%;
+}
+
+.nav {
+  $w: 500px;
+  $h: 80px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: $w;
+  height: $h;
+  margin-top: -($h/2);
+  margin-left: -($w/2);
+  background: rgba(255,255,255,.2);
+  &:hover .link {
+    width: 5%;
+  }
+  .link {
+    position: relative;
+    float: left;
+    width: 20%;
+    height: 100%;
+    text-shadow: 0 1px 0 rgba(0,0,0,.5);
+    color: #fff;
+    border-right: 1px solid rgba(255,255,255,.4);
+    transition: .5s width;
+    overflow: hidden;
+    cursor: pointer;
+    &:last-child {
+      border-right: 0;
+    }
+    &:hover {
+      width: 80%;
+    }
+    .small {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: ($w/5);
+      line-height: 78px;
+      text-align: center;
+      font-family: fontawesome;
+      font-size: 24px;
+    }
+    .full {
+      position: absolute;
+      top: 22px;
+      left: 100px;
+      text-transform: uppercase;
+      .f1, .f2 {
+        font-size: 16px;
+        font-weight: bold;
+        white-space: nowrap;
+      }
+      .f2 {
+        margin-top: 8px;
+        font-size: 12px;
+      }
+    }
+    .prev {
+      position: absolute;
+      top: 0;
+      left: 7px;
+      font-family: fontawesome;
+      font-size: 12px;
+      line-height: 78px;
+      transition: .5s opacity;
+      opacity: 0;
+    }
+    &:hover .prev {
+      opacity: 0;
+    }
+  }
+  &:hover .prev {
+    opacity: 1;
+  }
+}
+
+.e {
+  position: fixed;
+  bottom: 20px;
+  width: 100%;
+  text-align: center;
+  text-transform: uppercase;
+  text-shadow: 0 1px 0 rgba(0,0,0,.5);
+  color: rgba(255,255,255,.8);
+  font-size: 12px;
+  font-weight: 700;
+}

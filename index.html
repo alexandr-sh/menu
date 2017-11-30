@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <title>Горизонтальное раздвижное меню для сайта на CSS | Демонстрация для сайта RUDEBOX</title>
+    <link media="screen" href="demo/styles/demo.css" type="text/css" rel="stylesheet" />
+  <style>
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+nav,
+section,
+summary {
+    display: block;
+}
+audio,
+canvas,
+video {
+    display: inline-block;
+}
+audio:not([controls]) {
+    display: none;
+    height: 0;
+}
+[hidden] {
+    display: none;
+}
+html {
+    font-family: sans-serif; /* 1 */
+    -ms-text-size-adjust: 100%; /* 2 */
+    -webkit-text-size-adjust: 100%; /* 2 */
+}
+body {
+    margin: 0;
+}
+a:focus {
+    outline: thin dotted;
+}
+a:active,
+a:hover {
+    outline: 0;
+}
+h1 {
+    font-size: 2em;
+    margin: 0.67em 0;
+}
+abbr[title] {
+    border-bottom: 1px dotted;
+}
+
+b,
+strong {
+    font-weight: bold;
+}
+dfn {
+    font-style: italic;
+}
+hr {
+    -moz-box-sizing: content-box;
+    box-sizing: content-box;
+    height: 0;
+}
+mark {
+    background: #ff0;
+    color: #000;
+}
+code,
+kbd,
+pre,
+samp {
+    font-family: monospace, serif;
+    font-size: 1em;
+}
+pre {
+    white-space: pre-wrap;
+}
+q {
+    quotes: "\201C" "\201D" "\2018" "\2019";
+}
+small {
+    font-size: 80%;
+}
+sub,
+sup {
+    font-size: 75%;
+    line-height: 0;
+    position: relative;
+    vertical-align: baseline;
+}
+sup {
+    top: -0.5em;
+}
+sub {
+    bottom: -0.25em;
+}
+img {
+    border: 0;
+}
+svg:not(:root) {
+    overflow: hidden;
+}
+figure {
+    margin: 0;
+}
+fieldset {
+    border: 1px solid #c0c0c0;
+    margin: 0 2px;
+    padding: 0.35em 0.625em 0.75em;
+}
+legend {
+    border: 0; /* 1 */
+    padding: 0; /* 2 */
+}
+button,
+input,
+select,
+textarea {
+    font-family: inherit; /* 1 */
+    font-size: 100%; /* 2 */
+    margin: 0; /* 3 */
+}
+button,
+input {
+    line-height: normal;
+}
+button,
+select {
+    text-transform: none;
+}
+button,
+html input[type="button"], /* 1 */
+input[type="reset"],
+input[type="submit"] {
+    -webkit-appearance: button; /* 2 */
+    cursor: pointer; /* 3 */
+}
+
+button[disabled],
+html input[disabled] {
+    cursor: default;
+}
+input[type="checkbox"],
+input[type="radio"] {
+    box-sizing: border-box; /* 1 */
+    padding: 0; /* 2 */
+}
+input[type="search"] {
+    -webkit-appearance: textfield; /* 1 */
+    -moz-box-sizing: content-box;
+    -webkit-box-sizing: content-box; /* 2 */
+    box-sizing: content-box;
+}
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-decoration {
+    -webkit-appearance: none;
+}
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+    border: 0;
+    padding: 0;
+}
+textarea {
+    overflow: auto; /* 1 */
+    vertical-align: top; /* 2 */
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+</style>
+
+    <style>
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:300,400,700);
+@import url("http://weloveiconfonts.com/api/?family=fontawesome");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  font: 16px/1 'Open Sans', sans-serif;
+  background: url("http://abload.de/img/bluruyu2s.jpg") #b66e5d;
+  background-size: 100% 100%;
+}
+
+.nav {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 500px;
+  height: 80px;
+  margin-top: -40px;
+  margin-left: -250px;
+  background: rgba(255, 255, 255, 0.2);
+}
+.nav:hover .link {
+  width: 5%;
+}
+.nav .link {
+  position: relative;
+  float: left;
+  width: 20%;
+  height: 100%;
+  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.5);
+  color: #fff;
+  border-right: 1px solid rgba(255, 255, 255, 0.4);
+  transition: .5s width;
+  overflow: hidden;
+  cursor: pointer;
+}
+.nav .link:last-child {
+  border-right: 0;
+}
+.nav .link:hover {
+  width: 80%;
+}
+.nav .link .small {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100px;
+  line-height: 78px;
+  text-align: center;
+  font-family: fontawesome;
+  font-size: 24px;
+}
+.nav .link .full {
+  position: absolute;
+  top: 22px;
+  left: 100px;
+  text-transform: uppercase;
+}
+.nav .link .full .f1, .nav .link .full .f2 {
+  font-size: 16px;
+  font-weight: bold;
+  white-space: nowrap;
+}
+.nav .link .full .f2 {
+  margin-top: 8px;
+  font-size: 12px;
+}
+.nav .link .prev {
+  position: absolute;
+  top: 0;
+  left: 7px;
+  font-family: fontawesome;
+  font-size: 12px;
+  line-height: 78px;
+  transition: .5s opacity;
+  opacity: 0;
+}
+.nav .link:hover .prev {
+  opacity: 0;
+}
+.nav:hover .prev {
+  opacity: 1;
+}
+
+.e {
+  position: fixed;
+  bottom: 20px;
+  width: 100%;
+  text-align: center;
+  text-transform: uppercase;
+  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.5);
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+</style>
+
+  <script src="js/prefixfree.min.js"></script>
+
+</head>
+
+<body>
+	<div id="demo_navi">
+      <a href="http://www.rudebox.org.ua/ " rel="nofollow" ><div class="logo"><b><font color=#c3e425>RUDE</font>BOX</b></div></a>
+      <div class="demo">DEMO</div>
+	  <a id="setting_switch"></a>
+     <a href="http://www.rudebox.org.ua/horizontal-sliding-menu-for-website-css" rel="nofollow" ><div class="name">Горизонтальное раздвижное меню для сайта на CSS</div></a>
+    </div>
+  <div class='nav'>
+  <div class='link'>
+    <div class='prev'>&#xf0c9;</div>
+    <div class='small'>&#xf0c9;</div>
+    <div class='full'>
+      <div class='f1'>
+        главная
+      </div>
+      <div class='f2'>
+        перейти на главную страницу
+      </div>
+    </div>
+  </div>
+  <div class='link'>
+    <div class='prev'>&#xf004;</div>
+    <div class='small'>&#xf004;</div>
+    <div class='full'>
+      <div class='f1'>
+        лайки
+      </div>
+      <div class='f2'>
+        то что было вами лайкнуто
+      </div>
+    </div>
+  </div>
+  <div class='link'>
+    <div class='prev'>&#xf005;</div>
+    <div class='small'>&#xf005;</div>
+    <div class='full'>
+      <div class='f1'>
+        избранное
+      </div>
+      <div class='f2'>
+        ссылки на избранные материалы
+      </div>
+    </div>
+  </div>
+  <div class='link'>
+    <div class='prev'>&#xf085;</div>
+    <div class='small'>&#xf085;</div>
+    <div class='full'>
+      <div class='f1'>
+        настройки
+      </div>
+      <div class='f2'>
+        персональные настройки профиля
+      </div>
+    </div>
+  </div>
+  <div class='link'>
+    <div class='prev'>&#xf002;</div>
+    <div class='small'>&#xf002;</div>
+    <div class='full'>
+      <div class='f1'>
+        поиск
+      </div>
+      <div class='f2'>
+        ищите необходимые вам материалы
+      </div>
+    </div>
+  </div>
+</div>
+<div class='e'>
+  без javascript и flexbox
+</div>
+
+</body>
+
+</html>
